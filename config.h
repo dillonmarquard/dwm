@@ -6,15 +6,15 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 
-static const char *fonts[]          = { "monospace:size=12" };
+static const char *fonts[]          = { "monospace:size=12","fontawesome:size=12" };
 static const char dmenufont[]       = "monospace:size=12";
 
-static const char col1 = "#bbbbbb";
-static const char col2 = "#222222";
-static const char col3 = "#444444";
-static const char col4 = "#eeeeee";
-static const char col5 = "#9B59B6";
-static const char col6 = "#9B59B6";
+static const char col1[] = "#bbbbbb";
+static const char col2[] = "#222222";
+static const char col3[] = "#444444";
+static const char col4[] = "#eeeeee";
+static const char col5[] = "#9B59B6";
+static const char col6[] = "#9B59B6";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -23,7 +23,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5"};
+static const char *tags[] = { "1", "2", "3", "", ""};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -31,12 +31,11 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -61,7 +60,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col2, "-nf", col1, "-sb", col6, "-sf", col4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
